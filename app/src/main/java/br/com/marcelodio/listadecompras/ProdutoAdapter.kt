@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import br.com.marcelodio.listadecompras.model.Produto
 
 class ProdutoAdapter(var listener: ClickItemProdutoListener) :
     RecyclerView.Adapter<ProdutoAdapter.ProdutoAdapterViewHolder>() {

@@ -2,10 +2,14 @@ package br.com.marcelodio.listadecompras
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.marcelodio.listadecompras.model.Produto
 
 class MainActivity : AppCompatActivity(), ClickItemProdutoListener {
     private val rvList: RecyclerView by lazy {
@@ -18,23 +22,11 @@ class MainActivity : AppCompatActivity(), ClickItemProdutoListener {
         //initDrawer()
         bindView()
     }
-//    private fun initDrawer() {
-//        val drawerLayout = findViewById<View>(R.id.drawer_Layout) as DrawerLayout
-//        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-//        setSupportActionBar(toolbar)
-//
-//
-//        val toggle = ActionBarDrawerToggle(
-//            this,
-//            drawerLayout,
-//            toolbar,
-//            R.string.open_drawer,
-//            R.string.close_drawer
-//        )
-//        drawerLayout.addDrawerListener(toggle)
-//        toggle.syncState()
-//    }
-
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
 
     private fun bindView() {
         rvList.adapter = adapter
@@ -70,8 +62,7 @@ class MainActivity : AppCompatActivity(), ClickItemProdutoListener {
     }
 
     override fun clickItemProduto(produto: Produto) {
-        //AQUI É A AÇÃO DO CLICK LONGO PARA SELECIONAR VARIOS
+        //AQUI É A AÇÃO DO CLICK LONGO PARA SELECIONAR VARIOS-
     }
-
 
 }

@@ -1,4 +1,4 @@
-package br.com.marcelodio.listadecompras
+package br.com.marcelodio.listadecompras.model
 
 import android.os.Parcel
 import android.os.Parcelable
