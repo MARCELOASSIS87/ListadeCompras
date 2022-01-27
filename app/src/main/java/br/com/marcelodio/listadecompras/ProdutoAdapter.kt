@@ -14,7 +14,7 @@ class ProdutoAdapter(var listener: ClickItemProdutoListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoAdapterViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            layout.product_item,
+            R.layout.product_item,
             parent,
             false
         )//inflo o arquivo xml responsavel por cada card na tela
