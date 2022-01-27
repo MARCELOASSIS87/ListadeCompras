@@ -3,4 +3,7 @@
     <string name="adicionar_item">Adicionar Item</string>
     <string name="remover_itens">Remover Itens</string>
     <string name="nome_do_produto">Nome do Produto</string>
+    <string name="produto">Produto</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="salvar_item">Salvar item</string>
 </resources>

@@ -9,6 +9,8 @@
         android:roundIcon="@drawable/ic_baseline_shopping_cart_24"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaDeCompras">
+        <activity android:name=".SalvarProdutoActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
