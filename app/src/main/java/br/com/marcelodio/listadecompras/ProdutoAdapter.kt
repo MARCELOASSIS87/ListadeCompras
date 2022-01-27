@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,7 +14,7 @@ class ProdutoAdapter(var listener: ClickItemProdutoListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoAdapterViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            layout.produto_item,
+            layout.product_item,
             parent,
             false
         )//inflo o arquivo xml responsavel por cada card na tela
@@ -47,7 +46,7 @@ class ProdutoAdapter(var listener: ClickItemProdutoListener) :
 
         init {
             itemView.setOnClickListener {
-                listener.clickItemContact(list[adapterPosition])
+                listener.clickItemProduto(list[adapterPosition])
             }
         }
 
@@ -56,5 +55,4 @@ class ProdutoAdapter(var listener: ClickItemProdutoListener) :
             etNumber.inputType = produto.quantidade
         }
     }
-}
 }
