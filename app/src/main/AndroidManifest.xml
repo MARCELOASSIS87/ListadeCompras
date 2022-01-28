@@ -9,10 +9,10 @@
         android:roundIcon="@drawable/ic_baseline_shopping_cart_24"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaDeCompras">
-        <activity android:name=".SalvarProdutoActivity"
+        <activity android:name=".feature.produto.SalvarProdutoActivity"
             android:exported="true"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".feature.listaprodutos.view.ListaDeProdutosActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
