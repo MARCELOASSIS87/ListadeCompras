@@ -35,7 +35,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         helper = HelperDB(this)
         getProducts()
         buttonSalvar.setOnClickListener { salvarProduto() }
-        buttonAtualizar.setOnClickListener { salvarProduto() }
+        buttonAtualizar.setOnClickListener { updateProduto() }
         adapter?.setOnClickItem {
             Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
             editNome.setText(it.nome)

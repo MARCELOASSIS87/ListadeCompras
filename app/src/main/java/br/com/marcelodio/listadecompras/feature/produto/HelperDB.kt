@@ -1,11 +1,11 @@
 package br.com.marcelodio.listadecompras.feature.produto
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.os.Build.ID
 
 class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, VERSAO_ATUAL) {
 
@@ -39,7 +39,7 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
 
     fun salvarProduto(produto: Produto): Long {
         val db = this.writableDatabase
-        var content = ContentValues()
+        val content = ContentValues()
 
         content.put(COLUMNS_NOME, produto.nome)
         content.put(COLUMNS_QUANTIDADE, produto.quantidade)
@@ -48,6 +48,7 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
         return sucesso
     }
 
+    @SuppressLint("Range")
     fun getAllProducts(): ArrayList<Produto> {
         val list: ArrayList<Produto> = ArrayList()
         val selectQuery = "SELECT * FROM $TABLE_NAME"
@@ -76,7 +77,9 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
                 list.add(produto)
             } while (cursor.moveToNext())
         }
+        cursor.close()
         return list
+
     }
 
     fun updateProduto(produto: Produto): Int {
