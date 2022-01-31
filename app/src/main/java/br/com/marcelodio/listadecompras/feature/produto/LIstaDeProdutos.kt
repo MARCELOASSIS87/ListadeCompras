@@ -4,10 +4,10 @@ package br.com.marcelodio.listadecompras.feature.produto
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +22,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
     private lateinit var editQuantidade: EditText
     private lateinit var buttonSalvar: Button
     private lateinit var buttonAtualizar: Button
+    //private lateinit var textViewSoma: TextView
     private var produto: Produto? = null
     private lateinit var helper: HelperDB
 
@@ -35,12 +36,16 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         helper = HelperDB(this)
         getProducts()
         buttonSalvar.setOnClickListener { salvarProduto() }
+        //textViewSoma.setText(mostraSoma().toString())
         buttonAtualizar.setOnClickListener { updateProduto() }
         adapter?.setOnClickItem {
             Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
             editNome.setText(it.nome)
             editQuantidade.setText(it.quantidade)
             produto = it
+        }
+        adapter?.setOnClickDeleteItem {
+            deleteItem(it.id)
         }
     }
 
@@ -55,17 +60,41 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         }
         if (produto == null) return
 
-        val produto = Produto(id = produto!!.id, nome = nome, quantidade = quantidade)
+        val produto = Produto(
+            id = produto!!.id,
+            nome = nome,
+            quantidade = quantidade,
+        )
         val status = helper.updateProduto(produto)
-        if (status > -1){
+        if (status > -1) {
             clearEditText()
             getProducts()
-        }else{
-            Toast.makeText(this,"Atualização Falhou",Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Atualização Falhou", Toast.LENGTH_LONG).show()
 
         }
 
     }
+
+    private fun deleteItem(id: Int) {
+        if (id == null) return
+
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Você quer mesmo deletar o este produto?")
+        builder.setCancelable(true)
+        builder.setPositiveButton("Sim") { dialog, _ ->
+            helper.deleteProdutoById(id)
+            getProducts()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("Não") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alert = builder.create()
+        alert.show()
+    }
+
 
     private fun setupOnClicks() {
         icon_adicionar.setOnClickListener { onCLickAdicionar() }
@@ -76,11 +105,16 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         val list = helper.getAllProducts()
         Log.e("pppp", "${list.size}")
         adapter?.addItens(list)
+
     }
+
+//    private fun mostraSoma():String {
+//        var soma:String = helper.somaValores()
+//        return soma
+//    }
 
     private fun setupListView() {
         rv_List.layoutManager = LinearLayoutManager(this)
-
         adapter = ProdutoAdapter()
         recyclerView.adapter = adapter
     }
@@ -96,21 +130,6 @@ class ListaDeProdutosActivity : AppCompatActivity() {
     private fun onCLickAdicionar() {
         val intent = Intent(this, SalvarProdutoActivity::class.java)
         startActivity(intent)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.adicionar -> {
-                showToast("Executando a adição")
-                onCLickAdicionar()
-                true
-            }
-            R.id.remover -> {
-                showToast("Executando a remoção")
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     private fun salvarProduto() {
@@ -137,8 +156,5 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         editQuantidade.setText("")
         editNome.requestFocus()
     }
-
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
 }
+

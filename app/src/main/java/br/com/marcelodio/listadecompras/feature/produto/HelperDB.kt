@@ -20,7 +20,7 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
         val CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
                 "$COLUMNS_ID INTEGER NOT NULL," +
                 "$COLUMNS_NOME TEXT NOT NULL," +
-                "$COLUMNS_QUANTIDADE INTEGER NOT NULL," +
+                "$COLUMNS_QUANTIDADE TEXT NOT NULL," +
                 "" +
                 "PRIMARY KEY($COLUMNS_ID AUTOINCREMENT)" +
                 ")"
@@ -48,10 +48,29 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
         return sucesso
     }
 
+    fun deleteProdutoById(id: Int): Int {
+        val db = this.writableDatabase
+        val content = ContentValues()
+
+        content.put(COLUMNS_ID, id)
+
+        val sucesso = db.delete(TABLE_NAME, "id=$id", null)
+        db.close()
+        return sucesso
+    }
+//    fun somaValores():String{
+//        val db = this.readableDatabase
+//        var soma:String = ""
+//        val somaQuery = "SELECT SUM($COLUMNS_VALOR) as $soma FROM $TABLE_NAME"
+//        soma = db.execSQL(somaQuery).toString()
+//        return soma
+//    }
+
     @SuppressLint("Range")
     fun getAllProducts(): ArrayList<Produto> {
         val list: ArrayList<Produto> = ArrayList()
         val selectQuery = "SELECT * FROM $TABLE_NAME"
+
         val db = this.readableDatabase
 
         val cursor: Cursor

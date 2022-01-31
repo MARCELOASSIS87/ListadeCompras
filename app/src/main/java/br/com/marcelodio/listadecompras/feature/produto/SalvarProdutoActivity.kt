@@ -1,15 +1,11 @@
 package br.com.marcelodio.listadecompras.feature.produto
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.marcelodio.listadecompras.R
-import kotlinx.android.synthetic.main.adicionar_produto.*
-import kotlinx.android.synthetic.main.product_item.*
 
 
 class SalvarProdutoActivity : AppCompatActivity() {
