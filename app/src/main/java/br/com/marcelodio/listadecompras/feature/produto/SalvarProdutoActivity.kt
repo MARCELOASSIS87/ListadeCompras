@@ -18,26 +18,15 @@ class SalvarProdutoActivity : AppCompatActivity() {
     private lateinit var editQuantidade: EditText
     private lateinit var buttonSalvar: Button
 
-
     private lateinit var helper: HelperDB
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.adicionar_produto)
         initView()
-        helper = HelperDB(this)
         buttonSalvar.setOnClickListener { salvarProduto() }
 
     }
-
-    private fun getAllProducts(){
-        val list = helper.getAllProducts()
-        Log.e("pppp","${list.size}")
-    }
-
-
-
     private fun salvarProduto() {
         val nome = editNome.text.toString()
         val quantidade = editQuantidade.text.toString()

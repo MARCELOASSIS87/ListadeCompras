@@ -11,6 +11,9 @@
         android:theme="@style/Theme.ListaDeCompras">
         <activity
             android:name=".feature.produto.SalvarProdutoActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".feature.produto.ListaDeProdutosActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

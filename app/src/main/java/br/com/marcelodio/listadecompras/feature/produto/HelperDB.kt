@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.os.Build.ID
 
 class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, VERSAO_ATUAL) {
 
@@ -76,6 +77,18 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
             } while (cursor.moveToNext())
         }
         return list
+    }
+
+    fun updateProduto(produto: Produto): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMNS_ID, produto.id)
+        contentValues.put(COLUMNS_NOME, produto.nome)
+        contentValues.put(COLUMNS_QUANTIDADE, produto.quantidade)
+
+        val success = db.update(TABLE_NAME, contentValues, "id=" + produto.id, null)
+        db.close()
+        return success
     }
 
 
