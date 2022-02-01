@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llItem"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
@@ -11,7 +10,6 @@
         android:id="@+id/tv_Nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:text="@string/nome_do_produto"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,23 +19,17 @@
         android:id="@+id/tv_Quantidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:hint="quantidade"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Nome" />
+        android:layout_marginStart="50dp"
+        android:hint="@string/quantidade"
+        android:textSize="20sp" />
 
-    <Button
+    <ImageView
         android:id="@+id/buttonDelete"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="4dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Delete" />
+        android:contentDescription="@string/imagem_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_baseline_delete_outline_24" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

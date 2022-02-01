@@ -42,7 +42,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="251dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <EditText
@@ -91,7 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.984"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextQuantidade"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextQuantidade" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.marcelodio.listadecompras.R
@@ -48,7 +49,7 @@ class ProdutoAdapter : RecyclerView.Adapter<ProdutoAdapter.ProdutoAdapterViewHol
         //private var id = itemView.findViewById<TextView>(R.id.tv_id)
         private var nome = itemView.findViewById<TextView>(R.id.tv_Nome)
         private var quantidade = itemView.findViewById<TextView>(R.id.tv_Quantidade)
-        var btnDelete = itemView.findViewById<Button>(R.id.buttonDelete)
+        var btnDelete = itemView.findViewById<ImageView>(R.id.buttonDelete)
 
         fun bindView(produto: Produto) {
             nome.text = produto.nome
