@@ -6,6 +6,6 @@
     <string name="produto">Produto</string>
     <string name="quantidade">Quantidade</string>
     <string name="salvar_item">Salvar item</string>
-    <string name="atualizar_item">Atualizar Item</string>
     <string name="imagem_delete">imagem delete</string>
+    <string name="atualizar_item">Atualizar Item</string>
 </resources>

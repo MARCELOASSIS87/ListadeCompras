@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
         app:titleTextColor="#FFFFFF"
@@ -12,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
-
     <EditText
         android:id="@+id/editTextNomeProduto"
         android:layout_width="match_parent"
@@ -38,11 +38,11 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNomeProduto" />
 
     <Button
-        android:id="@+id/buttonSalvar"
+        android:id="@+id/buttonAtualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:text="@string/salvar_item"
+        android:text="@string/atualizar_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextQuantidade" />

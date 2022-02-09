@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_delete_outline_24.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout/adicionar_produto.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/atualizar_produto.xml" value="0.171875" />
         <entry key="app/src/main/res/layout/drawer_menu.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout/product_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/produto_item.xml" value="0.1" />

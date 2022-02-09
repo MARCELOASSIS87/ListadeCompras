@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:visibility="gone"
-            android:src="@drawable/ic_baseline_add_24" />
+            android:src="@drawable/ic_baseline_add_24"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/icon_excluir"
@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:baselineAligned="false"
-            android:visibility="gone"
-            android:src="@drawable/ic_baseline_delete_outline_24" />
+            android:src="@drawable/ic_baseline_delete_outline_24"
+            android:visibility="gone" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,28 +70,6 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextNomeProduto" />
 
 
-        <Button
-            android:id="@+id/buttonSalvar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/salvar_item"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextQuantidade" />
-
-        <Button
-            android:id="@+id/buttonAtualizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/atualizar_item"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.984"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextQuantidade" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -105,6 +83,5 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 </LinearLayout>
