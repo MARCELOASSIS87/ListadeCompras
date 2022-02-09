@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +22,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
     private lateinit var editQuantidade: EditText
     private lateinit var buttonSalvar: Button
     private lateinit var buttonAtualizar: Button
-    private lateinit var iconSalvar: ImageView
+    //private lateinit var textViewSoma: TextView
     private var produto: Produto? = null
     private lateinit var helper: HelperDB
 
@@ -32,12 +31,13 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rv_list)
         initView()
+        setupOnClicks()
         setupListView()
         helper = HelperDB(this)
         getProducts()
         buttonSalvar.setOnClickListener { salvarProduto() }
+        //textViewSoma.setText(mostraSoma().toString())
         buttonAtualizar.setOnClickListener { updateProduto() }
-        iconSalvar.setOnClickListener { onCLickAdicionar() }
         adapter?.setOnClickItem {
             Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
             editNome.setText(it.nome)
@@ -48,6 +48,8 @@ class ListaDeProdutosActivity : AppCompatActivity() {
             deleteItem(it.id)
         }
     }
+
+
     private fun updateProduto() {
         val nome = editNome.text.toString()
         val quantidade = editQuantidade.text.toString()
@@ -94,12 +96,22 @@ class ListaDeProdutosActivity : AppCompatActivity() {
     }
 
 
+    private fun setupOnClicks() {
+        icon_adicionar.setOnClickListener { onCLickAdicionar() }
+        icon_excluir.setOnClickListener { }
+    }
+
     private fun getProducts() {
         val list = helper.getAllProducts()
         Log.e("pppp", "${list.size}")
         adapter?.addItens(list)
 
     }
+
+//    private fun mostraSoma():String {
+//        var soma:String = helper.somaValores()
+//        return soma
+//    }
 
     private fun setupListView() {
         rv_List.layoutManager = LinearLayoutManager(this)
@@ -113,7 +125,6 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         buttonSalvar = findViewById(R.id.buttonSalvar)
         buttonAtualizar = findViewById(R.id.buttonAtualizar)
         recyclerView = findViewById(R.id.rv_List)
-        iconSalvar = findViewById(R.id.icon_adicionar)
     }
 
     private fun onCLickAdicionar() {
