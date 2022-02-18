@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.marcelodio.listadecompras.R
 import kotlinx.android.synthetic.main.rv_list.*
 
-class ListaDeProdutosActivity : AppCompatActivity() {
+open class ListaDeProdutosActivity : AppCompatActivity() {
 
     private var adapter: ProdutoAdapter? = null
     private lateinit var recyclerView: RecyclerView
@@ -34,7 +34,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         setupListView()
         helper = HelperDB(this)
         getProducts()
-        buttonSalvar.setOnClickListener { salvarProduto() }
+        //buttonSalvar.setOnClickListener { salvarProduto() }
         buttonAtualizar.setOnClickListener { updateProduto() }
         iconeSalvar.setOnClickListener { onCLickAdicionar() }
         adapter?.setOnClickItem {
@@ -66,7 +66,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         )
         val status = helper.updateProduto(produto)
         if (status > -1) {
-            clearEditText()
+            //clearEditText()
             getProducts()
         } else {
             Toast.makeText(this, "Atualização Falhou", Toast.LENGTH_LONG).show()
@@ -94,7 +94,7 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         alert.show()
     }
 
-    private fun getProducts() {
+    fun getProducts() {
         val list = helper.getAllProducts()
         Log.e("pppp", "${list.size}")
         adapter?.addItens(list)
@@ -121,29 +121,6 @@ class ListaDeProdutosActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun salvarProduto() {
-        val nome = editNome.text.toString()
-        val quantidade = editQuantidade.text.toString()
 
-        if (nome.isEmpty() || quantidade.isEmpty()) {
-            Toast.makeText(this, "Campo vazio impossivel salvar", Toast.LENGTH_LONG).show()
-        } else {
-            val produto = Produto(nome = nome, quantidade = quantidade)
-            val status = helper.salvarProduto(produto)
-            if (status > -1) {
-                Toast.makeText(this, "Produto Salvo", Toast.LENGTH_SHORT).show()
-                clearEditText()
-                getProducts()
-            } else {
-                Toast.makeText(this, "Não foi possível salvar", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun clearEditText() {
-        editNome.setText("")
-        editQuantidade.setText("")
-        editNome.requestFocus()
-    }
 }
 

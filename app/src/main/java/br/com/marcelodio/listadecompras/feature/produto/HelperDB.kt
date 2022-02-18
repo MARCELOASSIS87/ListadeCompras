@@ -58,13 +58,6 @@ class HelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, V
         db.close()
         return sucesso
     }
-//    fun somaValores():String{
-//        val db = this.readableDatabase
-//        var soma:String = ""
-//        val somaQuery = "SELECT SUM($COLUMNS_VALOR) as $soma FROM $TABLE_NAME"
-//        soma = db.execSQL(somaQuery).toString()
-//        return soma
-//    }
 
     @SuppressLint("Range")
     fun getAllProducts(): ArrayList<Produto> {
