@@ -32,8 +32,6 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
         setupListView()
         helper = HelperDB(this)
         getProducts()
-        //buttonSalvar.setOnClickListener { salvarProduto() }
-        //buttonAtualizar.setOnClickListener { updateProduto() }
         iconeSalvar.setOnClickListener { onCLickAdicionar() }
         adapter?.setOnClickItem {
             Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
@@ -110,10 +108,6 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
         getProducts()
     }
     private fun initView() {
-        editNome = findViewById(R.id.editTextNomeProduto)
-        editQuantidade = findViewById(R.id.editTextQuantidade)
-        //buttonSalvar = findViewById(R.id.buttonSalvar)
-//        buttonAtualizar = findViewById(R.id.buttonAtualizar)
         recyclerView = findViewById(R.id.rv_List)
         iconeSalvar = findViewById(R.id.icon_adicionar)
     }

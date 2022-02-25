@@ -20,7 +20,8 @@
             android:layout_weight="1"
             android:text="Lista de produtos"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
 
         <ImageView
             android:id="@+id/icon_adicionar"
