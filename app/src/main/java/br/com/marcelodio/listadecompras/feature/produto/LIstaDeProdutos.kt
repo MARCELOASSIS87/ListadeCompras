@@ -21,8 +21,6 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var editNome: EditText
     private lateinit var editQuantidade: EditText
-    //private lateinit var buttonSalvar: Button
-    private lateinit var buttonAtualizar: Button
     private lateinit var iconeSalvar: ImageView
     private var produto: Produto? = null
     private lateinit var helper: HelperDB
@@ -108,6 +106,10 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
     }
 
+    override fun onResume() {
+        super.onResume()
+        getProducts()
+    }
     private fun initView() {
         editNome = findViewById(R.id.editTextNomeProduto)
         editQuantidade = findViewById(R.id.editTextQuantidade)
