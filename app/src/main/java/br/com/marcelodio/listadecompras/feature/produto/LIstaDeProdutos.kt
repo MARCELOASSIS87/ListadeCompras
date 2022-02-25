@@ -4,7 +4,6 @@ package br.com.marcelodio.listadecompras.feature.produto
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
