@@ -28,16 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:src="@drawable/ic_baseline_add_24"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
-        <ImageView
-            android:id="@+id/icon_excluir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:baselineAligned="false"
-            android:src="@drawable/ic_baseline_delete_outline_24"
-            android:visibility="gone" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

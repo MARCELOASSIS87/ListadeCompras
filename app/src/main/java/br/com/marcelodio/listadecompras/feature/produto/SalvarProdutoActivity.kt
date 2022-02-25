@@ -19,6 +19,7 @@ class SalvarProdutoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.adicionar_produto)
+        helper = HelperDB(this)
         initView()
         buttonSalvar.setOnClickListener { salvarProduto() }
 

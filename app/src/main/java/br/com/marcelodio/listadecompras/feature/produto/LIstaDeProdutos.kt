@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +21,9 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var editNome: EditText
     private lateinit var editQuantidade: EditText
-    private lateinit var buttonSalvar: Button
+    //private lateinit var buttonSalvar: Button
     private lateinit var buttonAtualizar: Button
-    private lateinit var iconeSalvar: Button
+    private lateinit var iconeSalvar: ImageView
     private var produto: Produto? = null
     private lateinit var helper: HelperDB
 
@@ -35,7 +36,7 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
         helper = HelperDB(this)
         getProducts()
         //buttonSalvar.setOnClickListener { salvarProduto() }
-        buttonAtualizar.setOnClickListener { updateProduto() }
+        //buttonAtualizar.setOnClickListener { updateProduto() }
         iconeSalvar.setOnClickListener { onCLickAdicionar() }
         adapter?.setOnClickItem {
             Toast.makeText(this, it.nome, Toast.LENGTH_LONG).show()
@@ -110,8 +111,8 @@ open class ListaDeProdutosActivity : AppCompatActivity() {
     private fun initView() {
         editNome = findViewById(R.id.editTextNomeProduto)
         editQuantidade = findViewById(R.id.editTextQuantidade)
-        buttonSalvar = findViewById(R.id.buttonSalvar)
-        buttonAtualizar = findViewById(R.id.buttonAtualizar)
+        //buttonSalvar = findViewById(R.id.buttonSalvar)
+//        buttonAtualizar = findViewById(R.id.buttonAtualizar)
         recyclerView = findViewById(R.id.rv_List)
         iconeSalvar = findViewById(R.id.icon_adicionar)
     }
