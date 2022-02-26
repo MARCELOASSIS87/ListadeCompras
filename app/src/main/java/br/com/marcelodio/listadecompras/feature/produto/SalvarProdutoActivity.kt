@@ -5,7 +5,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import br.com.marcelodio.listadecompras.R
+import kotlinx.android.synthetic.main.adicionar_produto.*
 
 
 class SalvarProdutoActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class SalvarProdutoActivity : AppCompatActivity() {
         helper = HelperDB(this)
         initView()
         buttonSalvar.setOnClickListener { salvarProduto() }
+        setupToolBar(toolBar,"Lista de Compras", true)
 
     }
     private fun salvarProduto() {
@@ -53,6 +56,12 @@ class SalvarProdutoActivity : AppCompatActivity() {
         editNome = findViewById(R.id.editTextNomeProduto)
         editQuantidade = findViewById(R.id.editTextQuantidade)
         buttonSalvar = findViewById(R.id.buttonSalvar)
+    }
+
+    private fun setupToolBar(toolBar: Toolbar, title: String, navgationBack: Boolean) {
+        toolBar.title = title
+        setSupportActionBar(toolBar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(navgationBack)
     }
 }
 

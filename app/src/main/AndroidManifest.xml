@@ -11,9 +11,11 @@
         android:theme="@style/Theme.ListaDeCompras">
         <activity
             android:name=".feature.produto.SalvarProdutoActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".feature.produto.ListaDeProdutosActivity"/>
         <activity
             android:name=".feature.produto.ListaDeProdutosActivity"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
